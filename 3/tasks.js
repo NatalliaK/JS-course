@@ -1,6 +1,6 @@
 /**
  * Write an implementation of the 'checkMultiple' function
-  * that checks:
+ * that checks:
  * if a number is a multiple of 3 and 2 should return 'multiple of 3 and 2'
  * if a number is a multiple of 3 should return 'multiple of 3'
  * if a number is a multiple of 2 should return 'multiple of 2'
@@ -13,6 +13,16 @@
 
 export function checkMultiple(num) {
   // your implementation here
+
+  if (num % 2 === 0 && num % 3 === 0) {
+    return "multiple of 3 and 2";
+  } else if (num % 3 === 0) {
+    return "multiple of 3";
+  } else if (num % 2 === 0) {
+    return "multiple of 2";
+  } else {
+    console.log("wrong input");
+  }
 }
 
 /**
@@ -27,6 +37,8 @@ export function checkMultiple(num) {
  */
 export function copyObject(obj) {
   // your implementation here
+  const newObj = {};
+  return Object.assign(newObj, obj);
 }
 
 /**
@@ -41,6 +53,7 @@ export function copyObject(obj) {
 
 export function findIndex(arr, value) {
   // your implementation here
+  return arr.findIndex((elem) => elem === value);
 }
 
 /**
@@ -52,7 +65,11 @@ export function findIndex(arr, value) {
  */
 export function sortArray(arr) {
   // your implementation here
+  return arr.toSorted((a, b) => a - b);
 }
+
+// console.log(sortArray([100, 2, 10, 4, 0, 68, 74, 28, 9]));
+console.log(sortArray([-9, 80, 7, 6, 50, 4, -3, 20, 0]));
 
 /**
  * Write an implementation of the 'sumListValues' function
@@ -65,4 +82,35 @@ export function sortArray(arr) {
  */
 export function sumListValues(list) {
   // your implementation here
+
+    for (key in list) {
+    if (typeof key === 'object' && key !== null) {
+      for (innerKey in key)
+    }
+  }
+
+  return result
 }
+
+sumListValues({
+  value: 2,
+  next: {
+    value: 4,
+    next: {
+      value: 5,
+      next: {
+        value: 6,
+        next: {
+          value: 7,
+          next: {
+            value: 8,
+            next: {
+              value: 9,
+              next: null,
+            },
+          },
+        },
+      },
+    },
+  },
+});
