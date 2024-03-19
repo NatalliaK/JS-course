@@ -39,8 +39,8 @@ describe('"sumTo" function should return the sum of all values from 1 to num', (
 describe('"sumArrElems" function should return the sum of all values in the list', () => {
     test('should return the sum of all values in the list', () => {
         expect(sumArrElems([1, 2, 3, 4, 5, 6, 7, 8, 9])).toBe(45);
-        expect(sumArrElems([100, 203, 305, 344, 500, 565, 587, 800, 900])).toBe(4404);
-        expect(sumArrElems([100, 203, 305, 344, 500, 565, 587, 800, 900, 1000])).toBe(5404);
+        expect(sumArrElems([100, 203, 305, 344, 500, 565, 587, 800, 900])).toBe(4304);
+        expect(sumArrElems([100, 203, 305, 344, 500, 565, 587, 800, 900, 1000])).toBe(5304);
     });
 });
 
