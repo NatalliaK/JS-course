@@ -20,16 +20,17 @@ describe('"checkMultiple" function should return correct string value', () => {
 });
 
 describe('"copyObject" function should return a new object with the same values as the original object', () => {
-  test('should return a new object with the same values as the original object', () => {
+  test("should return a new object with the same values as the original object", () => {
     const obj = {
       a: 1,
-      b: { c: 2},
+      b: { c: 2 },
       d: [1, 2, 3],
       e: {
         f: {
-          g: 'hello',
-          h: { i: null }
-        }},
+          g: "hello",
+          h: { i: null },
+        },
+      },
     };
 
     const result = copyObject(obj);
@@ -58,8 +59,8 @@ describe('"findIndex" function should return the index of the value in the array
 
 describe('"sortArray" function should sort the array in ascending order', () => {
   test('should sort the array in ascending order', () => {
-    expect(sortArray([100, 2, 10, 4, 0, 68, 74, 28, 9])).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9]);
-    expect(sortArray([-9, 80, 7, 6, 50, 4, -3, 20, 0])).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    expect(sortArray([100, 2, 10, 4, 0, 68, 74, 28, 9])).toEqual([0, 2, 4, 9, 10, 28, 68, 74, 100]);
+    expect(sortArray([-9, 80, 7, 6, 50, 4, -3, 20, 0])).toEqual([-9, -3, 0, 4, 6, 7, 20, 50, 80]);
   });
 });
 

@@ -1,6 +1,6 @@
 /**
  * Write an implementation of the 'checkMultiple' function
-  * that checks:
+ * that checks:
  * if a number is a multiple of 3 and 2 should return 'multiple of 3 and 2'
  * if a number is a multiple of 3 should return 'multiple of 3'
  * if a number is a multiple of 2 should return 'multiple of 2'
@@ -13,6 +13,16 @@
 
 export function checkMultiple(num) {
   // your implementation here
+
+  if (num % 2 === 0 && num % 3 === 0) {
+    return "multiple of 3 and 2";
+  } else if (num % 3 === 0) {
+    return "multiple of 3";
+  } else if (num % 2 === 0) {
+    return "multiple of 2";
+  } else {
+    console.log("wrong input");
+  }
 }
 
 /**
@@ -27,6 +37,25 @@ export function checkMultiple(num) {
  */
 export function copyObject(obj) {
   // your implementation here
+  let resultObj
+
+  if (typeof obj !== "object" || obj === null) {
+    return obj; // Return the value if obj is not an object
+  }
+
+  // Create an array or object to hold the values
+  resultObj = Array.isArray(obj) ? [] : {};
+
+  // можно разделить arr и  obj  и сделать разные loops
+
+  for (let key in obj) {
+    let value = obj[key];
+
+    // Recursively (deep) copy for nested objects, including arrays
+    resultObj[key] = copyObject(value);
+  }
+
+  return resultObj;
 }
 
 /**
@@ -41,6 +70,7 @@ export function copyObject(obj) {
 
 export function findIndex(arr, value) {
   // your implementation here
+  return arr.findIndex((elem) => elem === value);
 }
 
 /**
@@ -52,7 +82,9 @@ export function findIndex(arr, value) {
  */
 export function sortArray(arr) {
   // your implementation here
+  return arr.sort((a, b) => a - b);
 }
+
 
 /**
  * Write an implementation of the 'sumListValues' function
@@ -63,6 +95,55 @@ export function sortArray(arr) {
  * @param list
  * @returns {number}
  */
-export function sumListValues(list) {
+// export function sumListValues(list) {
   // your implementation here
+
+const obj = {
+  value: 2,
+  next: {
+    value: 4,
+    next: {
+      value: 5,
+      next: {
+        value: 6,
+        next: {
+          value: 7,
+          next: {
+            value: 8,
+            next: {
+              value: 9,
+              next: null,
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
+
+export function sumListValues(list) {
+  let result = list.value;
+  
+  function sum(obj) {
+    // do smth while obj.next exists and not equal to 'null'
+    while (obj?.next && obj?.next !== null) {
+      // add value of the object to the result
+      result += obj.value;
+      // recursively invoke func again with next level inner object as argument
+      return sum(obj.next);
+    }
+    // check if value exists inside obj.next (handles the last level of obj)
+    if (obj?.value) {
+      result += obj.value;
+    }
+  }
+  
+  //  check if inner object is not a 'null'
+  if(list?.next !== null) {
+    // start our recursive function
+    sum(list.next);
+  }
+  
+  return result;
 }
